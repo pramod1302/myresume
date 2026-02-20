@@ -104,10 +104,6 @@
               <el-icon><Link /></el-icon>
               <a href="https://linkedin.com/in/pramod-n-a965b9264/" target="_blank">linkedin.com/in/pramod-n</a>
             </div>
-            <div class="contact-item">
-              <el-icon><Link /></el-icon>
-              <a href="https://github.com/pramod1302" target="_blank">github.com/pramod1302</a>
-            </div>
           </div>
 
           <!-- Download Resume -->
@@ -337,7 +333,7 @@
           </el-row>
 
           <!-- List View -->
-          <el-table v-if="Array.isArray(projects)" :data="projects" style="width: 100%" stripe>
+          <el-table v-else :data="projects" style="width: 100%" stripe>
             <el-table-column prop="title" label="Project" width="200" />
             <el-table-column prop="description" label="Description" />
             <el-table-column label="Tech Stack" width="300">
@@ -351,12 +347,12 @@
                 >{{ t }}</el-tag>
               </template>
             </el-table-column>
-              <el-table-column label="Badge" width="120">
-                <template #default="{ row }">
-                  <el-tag v-if="row.badge" type="danger" size="small">{{ row.badge }}</el-tag>
-                </template>
-              </el-table-column>
-            </el-table>
+            <el-table-column label="Badge" width="120">
+              <template #default="{ row }">
+                <el-tag v-if="row.badge" type="danger" size="small">{{ row.badge }}</el-tag>
+              </template>
+            </el-table-column>
+          </el-table>
         </section>
 
         <!-- Publications Section -->
@@ -438,7 +434,7 @@
 </template>
 
 <script>
-import { ref } from 'vue'
+import { ref, reactive, onMounted } from 'vue'
 import { 
   Document, Monitor, Briefcase, Reading, DataBoard, 
   Trophy, Message, Link, Download, ArrowRight, Phone,
@@ -458,73 +454,6 @@ export default {
     Coffee, Headset, Camera, Plane
   },
   setup() {
-        const education = [
-          {
-            degree: 'Ph.D. in Computer Science',
-            institution: 'Nitte Meenakshi Institute of Technology',
-            period: '2025 - Present',
-            score: 'Ongoing',
-            research: 'Internet of Things (IoT) with Blockchain Integration'
-          },
-          {
-            degree: 'Master of Computer Applications',
-            institution: 'BMS Institute of Technology, Bengaluru',
-            period: '2022 - 2024',
-            score: 'CGPA: 7.4/10'
-          },
-          {
-            degree: 'Bachelor of Science',
-            institution: 'MES Degree College, Bengaluru',
-            period: '2019 - 2022',
-            score: 'CGPA: 7.4/10'
-          },
-          {
-            degree: 'PUC (12th)',
-            institution: 'St. Claret PU College, Bengaluru',
-            period: '2017 - 2019',
-            score: '65%'
-          },
-          {
-            degree: 'SSLC (10th)',
-            institution: 'Ideal English High School, Bengaluru',
-            period: '2017',
-            score: '87%'
-          }
-        ]
-
-        const projects = [
-          {
-            title: 'Smart Doctor',
-            tech: ['Java', 'Android', 'Firebase', 'SQL'],
-            description: 'Healthcare mobile application providing smart diagnosis and doctor consultation support',
-            badge: 'KSCST Shortlisted',
-            image: 'https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=400'
-          },
-          {
-            title: 'Driver Drowsiness Alert',
-            tech: ['Python', 'OpenCV', 'Machine Learning'],
-            description: 'Computer vision–based system to detect driver fatigue and alert in real-time',
-            image: 'https://images.unsplash.com/photo-1549317661-bd32c8ce0db2?w=400'
-          },
-          {
-            title: 'Video Conference Application',
-            tech: ['Node.js', 'Express.js', 'Firebase', 'WebRTC'],
-            description: 'Cross-platform video conferencing app with real-time chat and secure authentication',
-            image: 'https://images.unsplash.com/photo-1516387938699-a93567ec168e?w=400'
-          },
-          {
-            title: 'AQI Analysis App',
-            tech: ['Python', 'Firebase', 'REST APIs', 'Android'],
-            description: 'Fetch and analyze Air Quality Index data with user-friendly dashboard',
-            image: 'https://images.unsplash.com/photo-1584267385494-9fdd9a71ad75?w=400'
-          },
-          {
-            title: 'E-Library Management',
-            tech: ['Node.js', 'Express.js', 'Firebase', 'SQL'],
-            description: 'Digital library system enabling book management, student access, and admin controls',
-            image: 'https://images.unsplash.com/photo-1524995997946-a1c2e315a42f?w=400'
-          }
-        ]
     const activeSection = ref('summary')
     const projectView = ref('grid')
     
@@ -532,6 +461,8 @@ export default {
     const summary = ref(null)
     const skills = ref(null)
     const experience = ref(null)
+    const projects = ref(null)
+    const publications = ref(null)
 
     const highlights = [
       'Academic teaching experience',
@@ -595,7 +526,73 @@ export default {
       }
     ]
 
-    // ...existing code...
+    const education = [
+      {
+        degree: 'Ph.D. in Computer Science',
+        institution: 'Nitte Meenakshi Institute of Technology',
+        period: '2025 - Present',
+        score: 'Ongoing',
+        research: 'Internet of Things (IoT) with Blockchain Integration'
+      },
+      {
+        degree: 'Master of Computer Applications',
+        institution: 'BMS Institute of Technology, Bengaluru',
+        period: '2022 - 2024',
+        score: 'CGPA: 7.4/10'
+      },
+      {
+        degree: 'Bachelor of Science',
+        institution: 'MES Degree College, Bengaluru',
+        period: '2019 - 2022',
+        score: 'CGPA: 7.4/10'
+      },
+      {
+        degree: 'PUC (12th)',
+        institution: 'St. Claret PU College, Bengaluru',
+        period: '2017 - 2019',
+        score: '65%'
+      },
+      {
+        degree: 'SSLC (10th)',
+        institution: 'Ideal English High School, Bengaluru',
+        period: '2017',
+        score: '87%'
+      }
+    ]
+
+    const projects = [
+      {
+        title: 'Smart Doctor',
+        tech: ['Java', 'Android', 'Firebase', 'SQL'],
+        description: 'Healthcare mobile application providing smart diagnosis and doctor consultation support',
+        badge: 'KSCST Shortlisted',
+        image: 'https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=400'
+      },
+      {
+        title: 'Driver Drowsiness Alert',
+        tech: ['Python', 'OpenCV', 'Machine Learning'],
+        description: 'Computer vision–based system to detect driver fatigue and alert in real-time',
+        image: 'https://images.unsplash.com/photo-1549317661-bd32c8ce0db2?w=400'
+      },
+      {
+        title: 'Video Conference Application',
+        tech: ['Node.js', 'Express.js', 'Firebase', 'WebRTC'],
+        description: 'Cross-platform video conferencing app with real-time chat and secure authentication',
+        image: 'https://images.unsplash.com/photo-1516387938699-a93567ec168e?w=400'
+      },
+      {
+        title: 'AQI Analysis App',
+        tech: ['Python', 'Firebase', 'REST APIs', 'Android'],
+        description: 'Fetch and analyze Air Quality Index data with user-friendly dashboard',
+        image: 'https://images.unsplash.com/photo-1584267385494-9fdd9a71ad75?w=400'
+      },
+      {
+        title: 'E-Library Management',
+        tech: ['Node.js', 'Express.js', 'Firebase', 'SQL'],
+        description: 'Digital library system enabling book management, student access, and admin controls',
+        image: 'https://images.unsplash.com/photo-1524995997946-a1c2e315a42f?w=400'
+      }
+    ]
 
     const publications = [
       {
@@ -652,7 +649,7 @@ export default {
       ElMessage.success('Resume download started')
     }
 
-    const getParticleStyle = () => {
+    const getParticleStyle = (n) => {
       return {
         left: `${Math.random() * 100}%`,
         top: `${Math.random() * 100}%`,
@@ -675,6 +672,9 @@ export default {
       competencies,
       skillCategories,
       experiences,
+      education,
+      projects,
+      publications,
       languages,
       interests,
       handleMenuSelect,

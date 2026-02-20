@@ -104,10 +104,6 @@
               <el-icon><Link /></el-icon>
               <a href="https://linkedin.com/in/pramod-n-a965b9264/" target="_blank">linkedin.com/in/pramod-n</a>
             </div>
-            <div class="contact-item">
-              <el-icon><Link /></el-icon>
-              <a href="https://github.com/pramod1302" target="_blank">github.com/pramod1302</a>
-            </div>
           </div>
 
           <!-- Download Resume -->

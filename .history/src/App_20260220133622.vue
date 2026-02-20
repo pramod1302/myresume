@@ -104,10 +104,6 @@
               <el-icon><Link /></el-icon>
               <a href="https://linkedin.com/in/pramod-n-a965b9264/" target="_blank">linkedin.com/in/pramod-n</a>
             </div>
-            <div class="contact-item">
-              <el-icon><Link /></el-icon>
-              <a href="https://github.com/pramod1302" target="_blank">github.com/pramod1302</a>
-            </div>
           </div>
 
           <!-- Download Resume -->
@@ -337,20 +333,21 @@
           </el-row>
 
           <!-- List View -->
-          <el-table v-if="Array.isArray(projects)" :data="projects" style="width: 100%" stripe>
-            <el-table-column prop="title" label="Project" width="200" />
-            <el-table-column prop="description" label="Description" />
-            <el-table-column label="Tech Stack" width="300">
-              <template #default="{ row }">
-                <el-tag 
-                  v-for="t in row.tech" 
-                  :key="t" 
-                  size="small" 
-                  effect="plain"
-                  class="tech-tag"
-                >{{ t }}</el-tag>
-              </template>
-            </el-table-column>
+          <el-table v-else :data="projects" style="width: 100%" stripe>
+            <el-table v-if="Array.isArray(projects)" :data="projects" style="width: 100%" stripe>
+              <el-table-column prop="title" label="Project" width="200" />
+              <el-table-column prop="description" label="Description" />
+              <el-table-column label="Tech Stack" width="300">
+                <template #default="{ row }">
+                  <el-tag 
+                    v-for="t in row.tech" 
+                    :key="t" 
+                    size="small" 
+                    effect="plain"
+                    class="tech-tag"
+                  >{{ t }}</el-tag>
+                </template>
+              </el-table-column>
               <el-table-column label="Badge" width="120">
                 <template #default="{ row }">
                   <el-tag v-if="row.badge" type="danger" size="small">{{ row.badge }}</el-tag>
