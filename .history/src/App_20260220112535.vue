@@ -484,4 +484,143 @@ export default {
       vertical-align: middle;
     }
   </style>
-...existing code...
+</head>
+<body>
+  <div class="resume-wrapper">
+    <el-card shadow="hover" class="resume-card">
+      <!-- header with animation & image (works even without actual 1000005132.jpg, will show alt/ broken icon, but fine) -->
+      <div class="header">
+        <img class="profile-pic" src="./1000005132.jpg" alt="Pramod N" onerror="this.onerror=null; this.src='data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22130%22%20height%3D%22130%22%20viewBox%3D%220%200%20100%20100%22%3E%3Ccircle%20cx%3D%2250%22%20cy%3D%2250%22%20r%3D%2245%22%20fill%3D%22%23409eff%22%20%2F%3E%3Ctext%20x%3D%2250%22%20y%3D%2268%22%20font-size%3D%2238%22%20text-anchor%3D%22middle%22%20fill%3D%22white%22%20dy%3D%22.3em%22%3EPN%3C%2Ftext%3E%3C%2Fsvg%3E' );">
+        <div class="contact-info">
+          <h2>PRAMOD N</h2>
+          <p>
+            <el-icon><i class="el-icon-phone" style="font-weight: bold;"></i></el-icon> +91 8861326592 &nbsp;|&nbsp;
+            <el-icon><i class="el-icon-message"></i></el-icon> pramod.n1301@gmail.com &nbsp;|&nbsp;
+            <el-icon><i class="el-icon-link"></i></el-icon>
+            <a href="https://linkedin.com/in/pramod-n-a965b9264/" target="_blank">linkedin.com/in/pramod-n</a> &nbsp;|&nbsp;
+            <el-icon><i class="el-icon-location"></i></el-icon> Bangalore, KA
+          </p>
+        </div>
+      </div>
+
+      <el-divider></el-divider>
+
+      <!-- SUMMARY with animation -->
+      <section>
+        <h3>SUMMARY</h3>
+        <p style="background: #f6faff; border-radius: 30px; padding: 1.2rem 1.8rem; font-size: 1.05rem; line-height: 1.6; box-shadow: inset 0 2px 6px #ffffff, 0 10px 15px -18px #163458;">
+          Motivated and detail-oriented academic and developer with experience as an Assistant Professor and a strong foundation in computer applications. Passionate about teaching, research, and contributing to innovative projects. Eager to leverage technical, academic, and research skills in dynamic environments.
+        </p>
+      </section>
+
+      <el-divider></el-divider>
+
+      <!-- SKILLS with modern chip layout -->
+      <section>
+        <h3>SKILLS</h3>
+        <ul class="skills-list">
+          <li><b>Programming:</b> Java, C, Python, SQL, JavaScript</li>
+          <li><b>Web & App:</b> Full Stack, Node.js, Express.js, Android, WebRTC</li>
+          <li><b>Databases & Cloud:</b> Firebase, AWS Lambda, SQL</li>
+          <li><b>Hosting & Deployment:</b> Vercel, Render, Netlify</li>
+          <li><b>Testing & Tools:</b> Postman, cURL, Selenium</li>
+          <li><b>UI/UX Design:</b> Figma, Photoshop, Premiere Pro</li>
+          <li><b>Other:</b> HTML, Git & GitHub, OpenCV</li>
+        </ul>
+      </section>
+
+      <el-divider></el-divider>
+
+      <!-- EXPERIENCE enhanced -->
+      <section>
+        <h3>EXPERIENCE</h3>
+        <div style="margin-left: 0.5rem;">
+          <b style="font-size: 1.2rem;">Assistant Professor</b><br>
+          <span style="font-weight: 500;">Dept of MCA, Nitte Meenakshi Institute of Technology, Bengaluru</span><br>
+          <i>August 2024 – July 2025</i>
+          <ul style="margin-top: 0.6rem;">
+            <li>Taught core MCA subjects including programming, data structures, and project development.</li>
+            <li>Mentored postgraduate students on research-oriented academic projects.</li>
+            <li>Participated in academic reviews, curriculum planning, and accreditation work.</li>
+            <li>Coordinated technical workshops and departmental hackathons.</li>
+          </ul>
+        </div>
+      </section>
+
+      <el-divider></el-divider>
+
+      <!-- EDUCATION with visual hierarchy -->
+      <section>
+        <h3>EDUCATION</h3>
+        <ul style="flex-direction: column; align-items: stretch; gap: 0.6rem;">
+          <li><b>Ph.D. (Computer Science)</b> – started 2025<br>Nitte Meenakshi Institute of Technology (Research centre)<br><span style="color:#2a4e8a;">IoT with Blockchain</span></li>
+          <li><b>MCA (Master of Computer Applications)</b> | CGPA 7.4/10<br>BMS Institute of Technology, Bengaluru (2022–2024)</li>
+          <li><b>Bachelor of Science</b> | CGPA 7.4/10<br>MES Degree College, Bengaluru (2019–2022)</li>
+          <li><b>PUC (12th)</b> | 65%<br>St. Claret PU College, Bengaluru (2017–2019)</li>
+          <li><b>SSLC (10th)</b> | 87%<br>Ideal English High School, Bengaluru (2004–2017)</li>
+        </ul>
+      </section>
+
+      <el-divider></el-divider>
+
+      <!-- PROJECTS section enriched with tech tags -->
+      <section>
+        <h3>PROJECTS</h3>
+        <ul style="flex-direction: column;">
+          <li>
+            <b>Smart Doctor</b> – <span style="background: #e5f0ff; border-radius: 30px; padding: 0.2rem 1rem;">KSCST shortlisted</span><br>
+            <i>Tech:</i> Java, Android Studio, Firebase, SQL<br>
+            Healthcare mobile app with smart diagnosis and doctor consultation.
+          </li>
+          <li>
+            <b>Driver Drowsiness Alert System</b><br>
+            <i>Tech:</i> Python, OpenCV, Machine Learning<br>
+            Real-time computer vision fatigue detection.
+          </li>
+          <li>
+            <b>Video Conference Mobile App</b><br>
+            <i>Tech:</i> Node.js, Express.js, Firebase, WebRTC, Render<br>
+            Cross-platform video conferencing with chat & auth.
+          </li>
+          <li>
+            <b>Air Quality Index (AQI) Analysis App</b><br>
+            <i>Tech:</i> Python, Firebase, REST APIs, Android<br>
+            Fetches AQI data, interactive dashboard.
+          </li>
+          <li>
+            <b>E-Library Management System</b><br>
+            <i>Tech:</i> Full stack: Node.js, Express, Firebase, SQL<br>
+            Digital library with admin and student access.
+          </li>
+        </ul>
+      </section>
+
+      <el-divider></el-divider>
+
+      <!-- LANGUAGES & PASSIONS combine with style -->
+      <section>
+        <h3>LANGUAGES</h3>
+        <p>🇮🇳 Kannada: Native  |  Hindi: Proficient  |  English: Proficient</p>
+      </section>
+
+      <el-divider></el-divider>
+
+      <section>
+        <h3>PASSIONS & INTERESTS</h3>
+        <p>✈️ Travelling  ·  🏊 Swimming  ·  📸 Photography</p>
+      </section>
+
+      <!-- small extra divider removed, done -->
+    </el-card>
+  </div>
+
+  <!-- element plus js (optional for icons, but we just use css) -->
+  <script src="https://unpkg.com/element-plus"></script>
+  <script>
+    // small fallback for icon classes (element-plus icons are usually font-based, but fine)
+    (function() {
+      // If the actual icon font isn't loaded, we keep them as plain text; it's fine.
+    })();
+  </script>
+</body>
+</html>
